@@ -20,10 +20,10 @@ public class MovieRepository {
         directorHashMap.put(director.getName(), director);
     }
 
-    public void addMovieDirectorPair(Director director, Movie movie){
-        List<Movie> curr = directorMovieMap.getOrDefault(director.getName(), new ArrayList<>());
-        curr.add(movie);
-        directorMovieMap.put(director.getName(), curr);
+    public void addMovieDirectorPair(String director, String movie){
+        List<Movie> curr = directorMovieMap.getOrDefault(director, new ArrayList<>());
+        curr.add(movieHashMap.get(movie));
+        directorMovieMap.put(director, curr);
     }
 
     public Movie getMovieByName(String movieName){
